@@ -1,3 +1,5 @@
+# minica - Lightweight CA
+
 Minica is a simple CA intended for use in situations where the CA operator
 also operates each host where a certificate will be used. It automatically
 generates both a key and a certificate when asked to produce a certificate.
@@ -17,33 +19,48 @@ will not overwrite existing keys or certificates.
 
 The certificate will have a validity of 2 years and 30 days.
 
-# Installation
+## Installation
 
 First, install the [Go tools](https://golang.org/dl/) and set up your `$GOPATH`.
 Then, run:
 
+### Installation with go
+
 `go install github.com/jsha/minica@latest`
 
-When using Go 1.11 or newer you don't need a $GOPATH and can instead do the
-following:
+### Install from source
 
-```
-cd /ANY/PATH
-git clone https://github.com/jsha/minica.git
+```shell
+git clone https://github.com/kdpuvvadi/minica.git && cd minica
 go build
-## or
-# go install
-```
-
-Mac OS users could alternatively use Homebrew: `brew install minica`
-
-# Example usage
 
 ```
+
+### Install with Homebrew
+
+Linux or Mac OS users with Homebrew can install with
+
+```shell
+brew install minica
+```
+
+## Example usage
+
+```shell
 # Generate a root key and cert in minica-key.pem, and minica.pem, then
 # generate and sign an end-entity key and cert, storing them in ./foo.com/
 $ minica --domains foo.com
 
 # Wildcard
 $ minica --domains '*.foo.com'
+```
+
+## Directory Structure
+
+```shell
+minica-key.pem
+│   minica.pem
+└───_.foo.com
+        cert.pem
+        key.pem
 ```
