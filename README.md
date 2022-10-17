@@ -55,12 +55,15 @@ $ minica --domains foo.com
 $ minica --domains '*.foo.com'
 ```
 
-## Directory Structure
+### Directory Structure
 
 ```shell
+minica.pem
 minica-key.pem
-│   minica.pem
-└───_.foo.com
-        cert.pem
-        key.pem
+_.foo.com
+├── cert.pem
+└── key.pem
+_.bar.net
+├── cert.pem
+└── key.pem
 ```
