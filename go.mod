@@ -1,1 +1,1 @@
-module github.com/jsha/minica
+module github.com/kdpuvvadi/minica
